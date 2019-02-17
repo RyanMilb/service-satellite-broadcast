@@ -1,0 +1,12 @@
+{
+  "name": "your-package-name",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "form-data": "^2.3.3",
+    "fs": "0.0.1-security",
+    "mesg-js": "^2.0.1",
+    "node-fetch": "^2.3.0",
+    "request": "^2.88.0"
+  }
+}

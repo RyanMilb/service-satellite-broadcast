@@ -1,0 +1,31 @@
+name: blockstream-satillite-api
+sid: satillite-mesg-service
+description: "Takes a message, up to 10kb, and relays it from the blockstream satillite."
+events:
+  invoice-generated:
+    data:
+      authtoken:
+        type: String
+      uuid:
+        type: String
+      invoice:
+        type: String
+      invoiceid:
+        type: String
+tasks: 
+  fetchInvoice:
+    inputs:
+      message:
+        type: String
+      senderid:
+        type: String
+    outputs:
+      success:
+        data:
+          status:
+            type: String
+      failure:
+        data:
+          message:
+            type: String
+ 
