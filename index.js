@@ -1,4 +1,4 @@
-const mesg = require('mesg-js').service()
+const liteflow = new (require('@liteflow/service'))()
 var FormData = require('form-data');
 var fetch = require('node-fetch');
 var fs = require('fs');
@@ -31,7 +31,7 @@ console.log('submitting formdata: ' + JSON.stringify(formData));
       .then(json => {
         if (json.errors) throw (json.errors)
         console.log("Invoice from blockstream:" + json.lightning_invoice.payreq);
-        mesg.emitEvent('invoice-generated', {
+        liteflow.emitEvent('invoice-generated', {
           authtoken: json.auth_token,
           uuid: json.uuid,
           invoice: json.lightning_invoice.payreq,
@@ -49,7 +49,7 @@ console.log('submitting formdata: ' + JSON.stringify(formData));
 }
 
 
-mesg.listenTask({
+liteflow.listenTask({
   fetchInvoice: fetchInvoiceHandler
 })
 console.log('Listening tasks...')
